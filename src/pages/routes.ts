@@ -1,4 +1,5 @@
-import { Step1Route } from "pages/Step1/route";
+import { SignUpRoute } from "pages/SignUp/route";
+import { MoreInfoRoute } from "pages/MoreInfo/route";
 import type { PageRoute } from "app/router/types";
 
-export const routes: PageRoute[] = [Step1Route];
+export const routes: PageRoute[] = [SignUpRoute, MoreInfoRoute];

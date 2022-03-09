@@ -8,12 +8,19 @@ const breakpointWidths = {
   xl: 1920,
 };
 
+export const fontWeights = {
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 600,
+};
+
 export default {
   color: {
     white: "#ffffff",
     black: "#000000",
-    darkGray: "#808489",
-    lightGray: "#e3e7eb",
+    darkGray: "#37383a",
+    lightGray: "#f5f4f3",
     green: "#478423",
   },
   text: {
@@ -22,8 +29,8 @@ export default {
     while: "#EAEFF4",
   },
   background: {
-    blue: "#339FFF",
-    skyBlue: "#b9e8ea",
+    primary: "#008051",
+    secondary: "#3f465e",
   },
   breakpoints: {
     xs: `${breakpointWidths.xs}px`,
@@ -35,10 +42,5 @@ export default {
     up: (size: Sizes) => `@media (min-width:${breakpointWidths[size]}px)`,
     down: (size: Sizes) => `@media (max-width:${breakpointWidths[size]}px)`,
   },
-};
-
-export const fontWeights = {
-  regular: 500,
-  medium: 600,
-  bold: 700,
+  fontWeights,
 };

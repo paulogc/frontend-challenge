@@ -7,6 +7,7 @@ import { routes } from "pages/routes";
 import theme from "app/theme/default";
 import { GlobalStyles } from "app/theme/GlobalStyle";
 import { store } from "app/store";
+import "./index.css";
 
 const App = () => (
   <Provider store={store}>
