@@ -2,35 +2,36 @@ import React from "react";
 import {
   Title,
   Form,
-  SignUpContainer,
+  MainContainer,
   StyledSubmitButton,
   ButtonsContainer,
 } from "domain/signUpForm/ui/commonStyles";
 import { StyledInput } from "ui/Input/styles";
 import { useSignUpPage } from "pages/SignUp/useSigUpPage";
+import { fieldLabels } from "domain/signUpForm/data/constants";
 
 export const SignUp = () => {
   const { handleSubmit, inputValues, handleInputChange } = useSignUpPage();
   return (
-    <SignUpContainer>
+    <MainContainer>
       <Form onSubmit={handleSubmit}>
         <Title>Sign Up</Title>
         <StyledInput
           name="name"
           onChange={handleInputChange}
-          placeholder="First name"
+          placeholder={fieldLabels.name}
           value={inputValues.name}
         />
         <StyledInput
           name="email"
           onChange={handleInputChange}
-          placeholder="E-mail"
+          placeholder={fieldLabels.email}
           value={inputValues.email}
         />
         <StyledInput
           name="password"
           onChange={handleInputChange}
-          placeholder="Password"
+          placeholder={fieldLabels.password}
           type="password"
           value={inputValues.password}
         />
@@ -38,6 +39,6 @@ export const SignUp = () => {
           <StyledSubmitButton type="submit" value="Next" />
         </ButtonsContainer>
       </Form>
-    </SignUpContainer>
+    </MainContainer>
   );
 };

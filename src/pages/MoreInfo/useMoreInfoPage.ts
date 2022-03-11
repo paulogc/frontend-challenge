@@ -17,7 +17,7 @@ export const useMoreInfoPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(setFormValue(inputValues as FormData));
-    // navigate("../confirmation");
+    navigate("../confirmation");
   };
 
   const handleGoBack = () => {
@@ -41,7 +41,6 @@ export const useMoreInfoPage = () => {
         setColor(data);
       })
       .catch(() => {
-        console.log("error");
         setColor([]);
       })
       .finally(() => {

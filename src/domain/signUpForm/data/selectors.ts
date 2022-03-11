@@ -1,7 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "app/store/types";
 
-const selectForm = (state: RootState) => state.form;
+export const selectForm = (state: RootState) => state.form;
 
 export const selectSignUpValues = createSelector(
   selectForm,

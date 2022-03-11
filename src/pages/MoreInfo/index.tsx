@@ -2,7 +2,7 @@ import React from "react";
 import {
   Title,
   Form,
-  SignUpContainer,
+  MainContainer,
   StyledButton,
   StyledSubmitButton,
   ButtonsContainer,
@@ -24,29 +24,34 @@ export const MoreInfo = () => {
   } = useMoreInfoPage();
 
   return (
-    <SignUpContainer>
+    <MainContainer>
       <Form onSubmit={handleSubmit}>
         <Title>Additional Info</Title>
         {isLoading ? (
-          <Skeleton width={247} height={48} />
+          <Skeleton width={275} height={48} />
         ) : (
           <Select
             name="color"
+            nullOptionText="Select Your Favorite Color"
             onChange={handleColorChange}
             options={colors}
             selected={inputValues.color}
           />
         )}
-        <Checkbox
-          label="I agree to terms and conditions"
-          onClick={handleTermsChange}
-          value={inputValues.terms}
-        />
+        <Checkbox onClick={handleTermsChange} value={inputValues.terms}>
+          I agree to&nbsp;
+          <a
+            href="https://www.upgrade.com/funnel/borrower-documents/TERMS_OF_USE"
+            target="_blank"
+          >
+            terms and conditions
+          </a>
+        </Checkbox>
         <ButtonsContainer>
           <StyledButton onClick={handleGoBack}>Back</StyledButton>
           <StyledSubmitButton type="submit" value="Next" />
         </ButtonsContainer>
       </Form>
-    </SignUpContainer>
+    </MainContainer>
   );
 };

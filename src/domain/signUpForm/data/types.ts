@@ -5,3 +5,5 @@ export type FormData = {
   color: string;
   terms: boolean;
 };
+
+export type FormLabel = Record<keyof FormData, string>;

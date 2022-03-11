@@ -1,18 +1,18 @@
 import React from "react";
-import { CheckBoxContainer } from "ui/Checkbox/styles";
+import { CheckBoxContainer, Input } from "ui/Checkbox/styles";
 
 type CheckboxProps = {
   value: boolean;
   onClick: () => void;
   name?: string;
-  label: string;
+  children: React.ReactNode;
 };
 
-export const Checkbox = ({ value, onClick, name, label }: CheckboxProps) => {
+export const Checkbox = ({ value, onClick, name, children }: CheckboxProps) => {
   return (
-    <CheckBoxContainer onClick={onClick} role="button">
-      <input name={name} checked={value} type="checkbox" />
-      {label}
+    <CheckBoxContainer role="button">
+      <Input name={name} onClick={onClick} checked={value} type="checkbox" />
+      {children}
     </CheckBoxContainer>
   );
 };

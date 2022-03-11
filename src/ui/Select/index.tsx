@@ -5,14 +5,23 @@ type Select = {
   options: string[];
   selected: string;
   name?: string;
+  nullOptionText?: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export const Select = ({ options, selected, name, onChange }: Select) => (
+export const Select = ({
+  options,
+  selected,
+  name,
+  onChange,
+  nullOptionText,
+}: Select) => (
   <StyledSelect name={name} onChange={onChange} value={selected}>
-    <option disabled value="">
-      Select your favorite color
-    </option>
+    {nullOptionText && (
+      <option disabled value="">
+        {nullOptionText}
+      </option>
+    )}
     {options.map((option) => (
       <option key={option} value={option}>
         {option}
