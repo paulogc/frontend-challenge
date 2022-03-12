@@ -8,8 +8,10 @@ import {
   ResultPageText,
 } from "domain/signUpForm/ui/commonStyles";
 import { useRestart } from "domain/signUpForm/hooks/useRestart";
+import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const Error = () => {
+  useStepCompleted();
   const { handleRestart } = useRestart();
 
   return (
@@ -20,7 +22,7 @@ export const Error = () => {
         <ResultPageText>
           Uh Oh, Something Went Wrong. Please try Again Later
         </ResultPageText>
-        <StyledButton onChange={handleRestart}>Restart</StyledButton>
+        <StyledButton onClick={handleRestart}>Restart</StyledButton>
       </Wrapper>
     </MainContainer>
   );

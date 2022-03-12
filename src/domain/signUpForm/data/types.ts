@@ -1,3 +1,8 @@
+export type FormState = {
+  data: FormData;
+  stepCompleted: number;
+};
+
 export type FormData = {
   name: string;
   email: string;

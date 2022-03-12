@@ -16,12 +16,26 @@ import {
 } from "pages/Confirmation/styles";
 import { Spinner } from "ui/Spinner/styles";
 import type { FormData } from "domain/signUpForm/data/types";
+import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const Confirmation = () => {
+  useStepCompleted();
   const { form, handleGoBack, handleSubmit, isLoading } = useConfirmationPage();
   const formKeys = Object.keys(form);
 
-  const renderTerms = (value: boolean) => (value ? "Agree" : "Disagree");
+  const renderValues = (key: keyof FormData) => {
+    switch (key) {
+      case "terms": {
+        return form.terms ? "Agree" : "Disagree";
+      }
+      case "password": {
+        return form.password.replace(/./g, "*");
+      }
+      default: {
+        return form[key];
+      }
+    }
+  };
 
   return (
     <MainContainer>
@@ -30,8 +44,7 @@ export const Confirmation = () => {
         <List>
           {formKeys.map((key: keyof FormData) => (
             <ListItem key={key}>
-              <FieldLabel>{fieldLabels[key]}:</FieldLabel>{" "}
-              {key === "terms" ? renderTerms(form[key]) : form[key]}
+              <FieldLabel>{fieldLabels[key]}:</FieldLabel> {renderValues(key)}
             </ListItem>
           ))}
         </List>

@@ -11,8 +11,6 @@ export function submitForm(form: FormData) {
       body: JSON.stringify(form),
     })
       .then((response) => {
-        console.log(response.ok);
-        console.log(response.status);
         if (!response.ok) {
           reject(response.text);
         }

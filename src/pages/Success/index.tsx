@@ -8,8 +8,10 @@ import {
   ResultPageText,
 } from "domain/signUpForm/ui/commonStyles";
 import { useRestart } from "domain/signUpForm/hooks/useRestart";
+import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const Success = () => {
+  useStepCompleted();
   const { handleRestart } = useRestart();
 
   return (

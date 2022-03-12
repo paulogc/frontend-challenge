@@ -10,9 +10,11 @@ import {
 import { Checkbox } from "ui/Checkbox";
 import { Select } from "ui/Select";
 import { useMoreInfoPage } from "./useMoreInfoPage";
-import { Skeleton } from "ui/Skeleton";
+import { StyledSkeleton } from "pages/MoreInfo/styles";
+import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const MoreInfo = () => {
+  useStepCompleted();
   const {
     colors,
     isLoading,
@@ -28,7 +30,7 @@ export const MoreInfo = () => {
       <Form onSubmit={handleSubmit}>
         <Title>Additional Info</Title>
         {isLoading ? (
-          <Skeleton width={275} height={48} />
+          <StyledSkeleton width={275} height={48} />
         ) : (
           <Select
             name="color"

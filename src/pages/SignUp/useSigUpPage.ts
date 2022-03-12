@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { selectSignUpValues } from "domain/signUpForm/data/selectors";
 import { useAppSelector, useAppDispatch } from "app/store/index";
-import { setFormValue } from "domain/signUpForm/data/actions";
+import { setFormValue, setStepCompleted } from "domain/signUpForm/data/actions";
 import { useNavigate } from "react-router-dom";
 import type { FormData } from "domain/signUpForm/data/types";
 
@@ -24,6 +24,7 @@ export const useSignUpPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(setFormValue(inputValues as FormData));
+    dispatch(setStepCompleted(1));
     navigate("../more-info");
   };
   return { handleSubmit, handleInputChange, inputValues };

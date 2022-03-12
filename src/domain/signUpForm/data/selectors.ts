@@ -1,10 +1,15 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "app/store/types";
 
-export const selectForm = (state: RootState) => state.form;
+export const selectFormState = (state: RootState) => state.form;
+
+export const selectFormData = createSelector(
+  selectFormState,
+  ({ data }) => data
+);
 
 export const selectSignUpValues = createSelector(
-  selectForm,
+  selectFormData,
   ({ name, email, password }) => ({
     name,
     email,
@@ -13,9 +18,14 @@ export const selectSignUpValues = createSelector(
 );
 
 export const selectMoreInfoValues = createSelector(
-  selectForm,
+  selectFormData,
   ({ terms, color }) => ({
     terms,
     color,
   })
+);
+
+export const selectStepCompleted = createSelector(
+  selectFormState,
+  ({ stepCompleted }) => stepCompleted
 );
