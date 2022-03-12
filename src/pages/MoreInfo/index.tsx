@@ -23,6 +23,7 @@ export const MoreInfo = () => {
     handleColorChange,
     handleTermsChange,
     inputValues,
+    hasError,
   } = useMoreInfoPage();
 
   return (
@@ -51,7 +52,7 @@ export const MoreInfo = () => {
         </Checkbox>
         <ButtonsContainer>
           <StyledButton onClick={handleGoBack}>Back</StyledButton>
-          <StyledSubmitButton type="submit" value="Next" />
+          <StyledSubmitButton disabled={hasError} type="submit" value="Next" />
         </ButtonsContainer>
       </Form>
     </MainContainer>

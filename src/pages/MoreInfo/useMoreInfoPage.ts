@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "app/store";
 import { selectMoreInfoValues } from "domain/signUpForm/data/selectors";
 import { setFormValue, setStepCompleted } from "domain/signUpForm/data/actions";
+import { validateAll } from "domain/signUpForm/utils/validations";
 import type { FormData } from "domain/signUpForm/data/types";
 
 export const useMoreInfoPage = () => {
@@ -57,5 +58,6 @@ export const useMoreInfoPage = () => {
     inputValues,
     handleColorChange,
     handleTermsChange,
+    hasError: validateAll(inputValues),
   };
 };

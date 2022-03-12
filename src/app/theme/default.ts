@@ -31,6 +31,7 @@ export default {
   background: {
     primary: "#008051",
     secondary: "#3f465e",
+    error: "#d50524",
   },
   breakpoints: {
     xs: `${breakpointWidths.xs}px`,

@@ -10,6 +10,10 @@ export const SubmitButton = styled.input(
     background-color: ${theme.background.primary};
     color: ${theme.color.white};
     border-radius: 3px;
+
+    :disabled {
+      opacity: 0.2;
+    }
   `
 );
 
