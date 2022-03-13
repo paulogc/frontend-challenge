@@ -14,7 +14,7 @@ import { StyledSkeleton } from "pages/MoreInfo/styles";
 import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const MoreInfo = () => {
-  useStepCompleted();
+  useStepCompleted(2);
   const {
     colors,
     isLoading,

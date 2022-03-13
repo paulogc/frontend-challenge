@@ -19,7 +19,7 @@ import type { FormData } from "domain/signUpForm/data/types";
 import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const Confirmation = () => {
-  useStepCompleted();
+  useStepCompleted(3);
   const { form, handleGoBack, handleSubmit, isLoading } = useConfirmationPage();
   const formKeys = Object.keys(form);
 

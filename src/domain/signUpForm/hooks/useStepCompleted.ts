@@ -3,7 +3,7 @@ import { selectStepCompleted } from "domain/signUpForm/data/selectors";
 import { useAppSelector } from "app/store";
 import { useEffect } from "react";
 
-export const useStepCompleted = () => {
+export const useStepCompleted = (currentStep: number) => {
   const navigate = useNavigate();
   const stepCompleted = useAppSelector(selectStepCompleted);
 
@@ -14,11 +14,15 @@ export const useStepCompleted = () => {
         break;
       }
       case 1: {
-        navigate("../more-info");
+        if (currentStep > stepCompleted) {
+          navigate("../more-info");
+        }
         break;
       }
       case 2: {
-        navigate("../confirmation");
+        if (currentStep > stepCompleted) {
+          navigate("../confirmation");
+        }
         break;
       }
     }

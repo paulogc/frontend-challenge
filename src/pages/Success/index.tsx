@@ -11,7 +11,7 @@ import { useRestart } from "domain/signUpForm/hooks/useRestart";
 import { useStepCompleted } from "domain/signUpForm/hooks/useStepCompleted";
 
 export const Success = () => {
-  useStepCompleted();
+  useStepCompleted(4);
   const { handleRestart } = useRestart();
 
   return (

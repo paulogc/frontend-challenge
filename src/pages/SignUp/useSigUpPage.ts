@@ -17,7 +17,6 @@ export const useSignUpPage = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const error = validate(value, name as keyof FormData);
-    console.log(error);
     setError({ ...errors, [name]: error });
 
     setInputValues({

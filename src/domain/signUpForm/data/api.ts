@@ -21,3 +21,21 @@ export function submitForm(form: FormData) {
       });
   });
 }
+
+export function getColors() {
+  return new Promise((resolve, reject) => {
+    fetch(`http://localhost:3001/api/colors`)
+      .then((response) => {
+        if (!response.ok) {
+          reject(response.text);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}

@@ -4,13 +4,14 @@ import { useAppSelector, useAppDispatch } from "app/store";
 import { selectMoreInfoValues } from "domain/signUpForm/data/selectors";
 import { setFormValue, setStepCompleted } from "domain/signUpForm/data/actions";
 import { validateAll } from "domain/signUpForm/utils/validations";
+import { getColors } from "domain/signUpForm/data/api";
 import type { FormData } from "domain/signUpForm/data/types";
 
 export const useMoreInfoPage = () => {
   const dispatch = useAppDispatch();
   const initialState = useAppSelector(selectMoreInfoValues);
   const navigate = useNavigate();
-  const [colors, setColor] = useState([]);
+  const [colors, setColors] = useState([]);
   const [inputValues, setInputValues] =
     useState<Partial<FormData>>(initialState);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,18 +37,18 @@ export const useMoreInfoPage = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`http://localhost:3001/api/colors`)
-      .then((res) => res.json())
-      .then((data) => {
-        setColor(data);
-      })
-      .catch(() => {
-        setColor([]);
-      })
-      .finally(() => {
+    async function fetchColors() {
+      setIsLoading(true);
+      try {
+        const colors = (await getColors()) as string[];
+        setColors(colors);
         setIsLoading(false);
-      });
+      } catch (e) {
+        setIsLoading(false);
+      }
+    }
+
+    fetchColors();
   }, []);
 
   return {
