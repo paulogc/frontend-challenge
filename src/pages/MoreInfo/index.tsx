@@ -31,7 +31,7 @@ export const MoreInfo = () => {
       <Form onSubmit={handleSubmit}>
         <Title>Additional Info</Title>
         {isLoading ? (
-          <StyledSkeleton width={275} height={48} />
+          <StyledSkeleton data-testid="skeleton" width={275} height={48} />
         ) : (
           <Select
             name="color"

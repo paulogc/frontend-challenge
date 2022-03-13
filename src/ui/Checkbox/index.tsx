@@ -11,7 +11,13 @@ type CheckboxProps = {
 export const Checkbox = ({ value, onClick, name, children }: CheckboxProps) => {
   return (
     <CheckBoxContainer role="button">
-      <Input name={name} onClick={onClick} checked={value} type="checkbox" />
+      <Input
+        data-testid="checkbox"
+        name={name}
+        onChange={onClick}
+        checked={value}
+        type="checkbox"
+      />
       {children}
     </CheckBoxContainer>
   );

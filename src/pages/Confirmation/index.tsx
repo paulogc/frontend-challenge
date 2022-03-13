@@ -50,7 +50,7 @@ export const Confirmation = () => {
         </List>
         {isLoading ? (
           <SpinnerContainer>
-            <Spinner />
+            <Spinner data-testid="spinner" />
           </SpinnerContainer>
         ) : (
           <ButtonsContainer>

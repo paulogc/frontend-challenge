@@ -16,7 +16,12 @@ export const Select = ({
   onChange,
   nullOptionText,
 }: Select) => (
-  <StyledSelect name={name} onChange={onChange} value={selected}>
+  <StyledSelect
+    data-testid="select"
+    name={name}
+    onChange={onChange}
+    value={selected}
+  >
     {nullOptionText && (
       <option disabled value="">
         {nullOptionText}
