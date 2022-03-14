@@ -17,6 +17,9 @@ redux-toolkit it's a tool set that help to eliminate some boilerplate during the
 ### React router
 React router as router api. Allowing us to use dynamic routing (route as the app renders).
 
+### React testing lib
+For test implementation.
+
 ## Structure
 
 ### App
