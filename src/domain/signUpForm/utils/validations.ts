@@ -1,7 +1,7 @@
 import { messages, EMAIL_REGEX } from "domain/signUpForm/data/constants";
 import { FormData } from "domain/signUpForm/data/types";
 
-const required = (value: any) => {
+const required = (value: string | boolean | number) => {
   if (!value) return messages.required;
 };
 
@@ -9,7 +9,10 @@ const emailFormat = (value: string) => {
   if (!EMAIL_REGEX.test(value)) return messages.email;
 };
 
-const validations: Record<keyof FormData, Array<(value: any) => string>> = {
+const validations: Record<
+  keyof FormData,
+  Array<(value: string | boolean | number) => string>
+> = {
   name: [required],
   email: [required, emailFormat],
   password: [required],
